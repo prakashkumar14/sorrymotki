@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry  ❤️ | CHIRKUT</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #fff0f5, #ffd6e7);
+      color: #7b2447;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 35px 15px 25px;
+    }
+
+    header h1 {
+      font-size: clamp(30px, 6vw, 48px);
+      color: #d63384;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 240, 247, 0.96);
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 12px #d6338420;
+    }
+
+    nav a {
+      color: #b51f65;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 9px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: #ffd0e2;
+    }
+
+    .container {
+      width: min(900px, 92%);
+      margin: 25px auto 50px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid #ffffff;
+      border-radius: 24px;
+      padding: clamp(18px, 4vw, 30px);
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(191, 54, 112, 0.12);
+      animation: appear 0.7s ease;
+      scroll-margin-top: 90px;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: #d63384;
+      margin-bottom: 15px;
+      font-size: 25px;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    .hero .big-heart {
+      font-size: 65px;
+      display: block;
+      margin-bottom: 12px;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.13); }
+    }
+
+    .hero h2 {
+      font-size: clamp(25px, 5vw, 36px);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px #d6338430;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, #ff4f93, #d63384);
+    }
+
+    .secondary {
+      color: #b51f65;
+      background: #ffe0ec;
+    }
+
+    .meter-box {
+      background: #ffe7f0;
+      padding: 20px;
+      border-radius: 18px;
+      margin-top: 18px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin: 20px 0;
+      accent-color: #e83e8c;
+      cursor: pointer;
+    }
+
+    .meter-number {
+      font-size: 38px;
+      color: #d63384;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #meterMessage {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .letter {
+      background: #fff2f7;
+      padding: 22px;
+      border-radius: 18px;
+      line-height: 1.9;
+      white-space: pre-line;
+      border-left: 4px solid #ff70a6;
+    }
+
+    .video-frame {
+      margin-top: 18px;
+      background: #210c17;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      max-height: 520px;
+      background: #210c17;
+    }
+
+    .small {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px 35px;
+      color: #a32a61;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -35px;
+      z-index: -1;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+      }
+    }
+
+    .surprise {
+      display: none;
+      text-align: center;
+      padding: 18px;
+      background: #ffe0ec;
+      border-radius: 16px;
+      margin-top: 15px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 520px) {
+      nav {
+        gap: 3px;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 8px;
+      }
+
+      .card {
+        border-radius: 19px;
+      }
+
+      button {
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Sorry  ❤️</h1>
+    <p>A little website made with love, just for you, CHIRKUT 🥹💗</p>
+  </header>
+
+  <nav>
+    <a href="#home">🏠 Home</a>
+    <a href="#forgiveness">💗 Forgiveness</a>
+    <a href="#letter">💌 Love Letter</a>
+    <a href="#video">🎬 Special Video</a>
+  </nav>
+
+  <main class="container">
+
+    <!-- HOME SECTION -->
+    <section class="card hero" id="home">
+      <span class="big-heart">❤️</span>
+
+      <h2>Hey CHIRKUT 🥺💖</h2>
+
+      <p>
+        Mujhse galti hui ho toh I'm truly sorry.
+        Tumhari feelings mere liye important hain.
+        Main chahta hoon ki hum araam se baat karein
+        aur main tumhari baat samajh sakun. 💗
+      </p>
+
+      <div class="button-row">
+        <button class="primary" onclick="goTo('letter')">
+          💌 Read My Letter
+        </button>
+
+        <button class="secondary" onclick="goTo('forgiveness')">
+          🥹 Forgiveness Meter
+        </button>
+      </div>
+    </section>
+
+    <!-- FORGIVENESS METER -->
+    <section class="card" id="forgiveness">
+      <h2>💗 Forgiveness Meter</h2>
+
+      <p>
+        Chirkut, tum jab ready ho tab apna answer select karna.
+        Koi pressure nahi. ❤️
+      </p>
+
+      <div class="meter-box">
+        <div class="meter-number">
+          <span id="meterValue">50</span>%
+        </div>
+
+        <input
+          type="range"
+          id="forgivenessRange"
+          min="0"
+          max="100"
+          value="50"
+          aria-label="Forgiveness meter"
+        >
+
+        <p id="meterMessage">
+          Let's talk when you're ready 💗
+        </p>
+      </div>
+
+      <div class="surprise" id="meterSurprise">
+        <h2>Thank You ❤️</h2>
+        <p>
+          Thank you for hearing me out.
+          Main bhi tumhari feelings ko samajhne ki koshish karunga. 🫶
+        </p>
+      </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section class="card" id="letter">
+      <h2>💌 A Little Letter For You</h2>
+
+      <div class="letter" id="loveLetter">Dear CHIRKUT ❤️,
+
+I'm really sorry if I hurt you.
+Mera intention tumhe sad karna nahi tha.
+
+Aapki feelings mere liye important hain.
+Main chahta hoon ki main tumhari baat dhyaan se sunun,
+apni galti samjhun aur use sudharne ki koshish karun.
+
+Main aap se bas ek slap chahta hoon
+q ki hume calmly baat kar sakein.
+
+Take your time. Jab tum ready ho,
+main aapko baat sunne ke liye ready hoon. ❤️
+
+With care,
+Your Sorry Person 🥹💗</div>
+
+      <div class="button-row">
+        <button class="primary" onclick="copyLetter()">
+        </button>
+      </div>
+
+      <p class="small" id="copyStatus" aria-live="polite"></p>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="card" id="video">
+      <h2>🎬 A Special Video For You ❤️</h2>
+
+      <p>
+        Ye chhota sa video tumhare liye hai, CHIRKUT. 🥹💗
+      </p>
+
+      <div class="video-frame">
+        <video
+          id="myVideo"
+          controls
+          playsinline
+          preload="metadata"
+          poster=""
+        >
+          <source src="myvideo.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+      </div>
+
+      <div class="button-row">
+        <button class="primary" onclick="playVideo()">
+          ▶ Play Video ❤️
+        </button>
+
+        <button class="secondary" onclick="pauseVideo()">
+          ⏸ Pause Video
+        </button>
+
+        <button class="secondary" onclick="restartVideo()">
+          🔄 Replay
+        </button>
+      </div>
+
+      <p class="small" id="videoStatus" aria-live="polite">
+        A little surprise for you 💕
+      </p>
+    </section>
+
+    <!-- END MESSAGE -->
+    <section class="card hero">
+      <span class="big-heart">🫶</span>
+
+      <h2>One Last Thing...</h2>
+
+      <p>
+        I'm sorry, CHIRKUT. ❤️
+        Tumhari feelings matter karti hain.
+        Jab tum ready ho, let's talk.
+      </p>
+
+      <div class="button-row">
+        <button class="primary" onclick="showHearts()">
+          Send Some Hearts 💖
+        </button>
+      </div>
+
+      <p id="heartMessage" class="small"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    Made with ❤️ and care for CHIRKUT
+    <br>
+    © 2026 — Sorry My Love
+  </footer>
+
+  <script>
+    // Navigation
+    function goTo(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    // Floating hearts in background
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+      heart.textContent = ["❤️", "💗", "💕", "💖", "🌸"][
+        Math.floor(Math.random() * 5)
+      ];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (15 + Math.random() * 22) + "px";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 700);
+
+    // Forgiveness meter
+    const forgivenessRange =
+      document.getElementById("forgivenessRange");
+
+    forgivenessRange.addEventListener("input", function () {
+      const value = Number(this.value);
+
+      document.getElementById("meterValue").textContent = value;
+
+      const message = document.getElementById("meterMessage");
+      const surprise = document.getElementById("meterSurprise");
+
+      if (value < 25) {
+        message.textContent =
+          "I understand. Take your time. ❤️";
+        surprise.style.display = "none";
+      } else if (value < 50) {
+        message.textContent =
+          "I'm listening whenever you're ready. 🥹";
+        surprise.style.display = "none";
+      } else if (value < 75) {
+        message.textContent =
+          "Thank you for giving this a thought. 💗";
+        surprise.style.display = "none";
+      } else if (value < 100) {
+        message.textContent =
+          "Sending you a little kindness. 🫶";
+        surprise.style.display = "none";
+      } else {
+        message.textContent =
+          "Thank you for hearing me out! ❤️";
+        surprise.style.display = "block";
+      }
+    });
+
+
+
+    // Video controls
+    const myVideo = document.getElementById("myVideo");
+    const videoStatus = document.getElementById("videoStatus");
+
+    function playVideo() {
+      myVideo.play()
+        .then(() => {
+          videoStatus.textContent = "Playing your special video ❤️🎬";
+        })
+        .catch(() => {
+          videoStatus.textContent =
+            "Video load nahi hua. Check karo ki myvideo.mp4 file same folder mein hai.";
+        });
+    }
+
+    function pauseVideo() {
+      myVideo.pause();
+      videoStatus.textContent = "Video paused 💗";
+    }
+
+    function restartVideo() {
+      myVideo.currentTime = 0;
+
+      myVideo.play()
+        .then(() => {
+          videoStatus.textContent = "Playing again! 💖";
+        })
+        .catch(() => {
+          videoStatus.textContent =
+            "Video play karne ke liye myvideo.mp4 file check karo.";
+        });
+    }
+
+    myVideo.addEventListener("ended", function () {
+      videoStatus.textContent = "Hope you liked this little surprise ❤️";
+    });
+
+    myVideo.addEventListener("error", function () {
+      videoStatus.textContent =
+        "Video nahi mil raha. File ka naam aur location check karo.";
+    });
+
+    // Heart button
+    function showHearts() {
+      document.getElementById("heartMessage").textContent =
+        "❤️ 💗 💖 💕 ❤️ 💗 Sending you kindness and good wishes!";
+
+      for (let i = 0; i < 15; i++) {
+        setTimeout(createHeart, i * 120);
+      }
+    }
+  </script>
+
+</body>
+</html>
